@@ -161,3 +161,7 @@ OpenAITest/Library/
 OpenAITest/Temp/
 
 OpenAITest/UserSettings/
+
+OpenAITest/Logs/
+
+OpenAITest/obj/Debug/
