@@ -21,7 +21,7 @@ public class OpenAIController : MonoBehaviour
 
     void Start()
     {
-        _api = new OpenAIAPI(Environment.GetEnvironmentVariable("OPENAI_API_KEY", EnvironmentVariableTarget.User));
+        _api = new OpenAIAPI("");
         StartConversation();
         okButton.onClick.AddListener(() => GetResponse());
     }
@@ -63,7 +63,7 @@ public class OpenAIController : MonoBehaviour
         _messages.Add(userMessage);
         
         // Update the text field with the user message
-        textField.text = string.Format("You: {0}", userMessage.Content);
+        textField.text = textField.text + string.Format("\nYou: {0}", userMessage.Content);
         
         // Clear the input field
         inputField.text = "";
@@ -87,7 +87,7 @@ public class OpenAIController : MonoBehaviour
         _messages.Add(responseMessage);
         
         // Update the text field with the response
-        textField.text = string.Format("You: {0}\n\nDerga: {1}", userMessage.Content, responseMessage.Content);
+        textField.text = textField.text + string.Format("\nDerga: {0}", responseMessage.Content);
         
         // Re-enable the ok-button
         okButton.enabled = true;
